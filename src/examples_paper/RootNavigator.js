@@ -1,13 +1,8 @@
 /* @flow */
 
 import * as React from 'react';
-import { StackNavigator } from 'react-navigation';
-import {
-  Toolbar,
-  ToolbarContent,
-  ToolbarAction,
-  ToolbarBackAction,
-} from 'react-native-paper';
+import { createStackNavigator } from 'react-navigation';
+import { Appbar } from 'react-native-paper';
 import ExampleList, { examples } from './ExampleList';
 
 const routes = Object.keys(examples)
@@ -18,10 +13,10 @@ const routes = Object.keys(examples)
 
     Screen.navigationOptions = props => ({
       header: (
-        <Toolbar>
-          <ToolbarBackAction onPress={() => props.navigation.goBack()} />
-          <ToolbarContent title={(Comp: any).title} />
-        </Toolbar>
+        <Appbar.Header>
+          <Appbar.BackAction onPress={() => props.navigation.goBack()} />
+          <Appbar.Content title={(Comp: any).title} />
+        </Appbar.Header>
       ),
       /* $FlowFixMe */
       ...(typeof Comp.navigationOptions === 'function'
@@ -35,7 +30,7 @@ const routes = Object.keys(examples)
     };
   }, {});
 
-export default StackNavigator(
+export default createStackNavigator(
   {
     home: { screen: ExampleList },
     ...routes,
@@ -43,13 +38,10 @@ export default StackNavigator(
   {
     navigationOptions: ({ navigation }) => ({
       header: (
-        <Toolbar>
-          <ToolbarAction
-            icon="menu"
-            onPress={() => navigation.navigate('DrawerOpen')}
-          />
-          <ToolbarContent title="Examples" />
-        </Toolbar>
+        <Appbar.Header>
+          <Appbar.Action icon="menu" onPress={() => navigation.openDrawer()} />
+          <Appbar.Content title="Examples" />
+        </Appbar.Header>
       ),
     }),
   }

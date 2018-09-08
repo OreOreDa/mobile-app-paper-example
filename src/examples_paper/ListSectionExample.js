@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { ScrollView, StyleSheet, Image } from 'react-native';
-import { ListSection, ListItem, Divider, withTheme } from 'react-native-paper';
+import { List, Divider, withTheme } from 'react-native-paper';
 import type { Theme } from 'react-native-paper/types';
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 };
 
 class ListSectionExample extends React.Component<Props> {
-  static title = 'ListSection';
+  static title = 'List.Section';
 
   render() {
     const {
@@ -20,58 +20,64 @@ class ListSectionExample extends React.Component<Props> {
     } = this.props;
     return (
       <ScrollView style={[styles.container, { backgroundColor: background }]}>
-        <ListSection title="Single line">
-          <ListItem icon="event" title="List item 1" />
-          <ListItem icon="redeem" title="List item 2" />
-        </ListSection>
+        <List.Section title="Single line">
+          <List.Item
+            left={props => <List.Icon {...props} icon="event" />}
+            title="List item 1"
+          />
+          <List.Item
+            left={props => <List.Icon {...props} icon="redeem" />}
+            title="List item 2"
+          />
+        </List.Section>
         <Divider />
-        <ListSection title="Two line">
-          <ListItem
-            avatar={
+        <List.Section title="Two line">
+          <List.Item
+            left={() => (
               <Image
                 source={require('../assets/email-icon.png')}
-                style={styles.avatar}
+                style={styles.image}
               />
-            }
+            )}
             title="List item 1"
             description="Describes item 1"
           />
-          <ListItem
-            icon="info"
-            avatar={
+          <List.Item
+            left={() => (
               <Image
                 source={require('../assets/email-icon.png')}
-                style={styles.avatar}
+                style={styles.image}
               />
-            }
+            )}
+            right={props => <List.Icon {...props} icon="info" />}
             title="List item 2"
             description="Describes item 2"
           />
-        </ListSection>
+        </List.Section>
         <Divider />
-        <ListSection title="Three line">
-          <ListItem
-            avatar={
+        <List.Section title="Three line">
+          <List.Item
+            left={() => (
               <Image
                 source={require('../assets/email-icon.png')}
-                style={styles.avatar}
+                style={styles.image}
               />
-            }
+            )}
             title="List item 1"
             description="Describes item 1. Example of a very very long description."
           />
-          <ListItem
-            icon="star-border"
-            avatar={
+          <List.Item
+            left={() => (
               <Image
                 source={require('../assets/email-icon.png')}
-                style={styles.avatar}
+                style={styles.image}
               />
-            }
+            )}
+            right={props => <List.Icon {...props} icon="star-border" />}
             title="List item 2"
             description="Describes item 2. Example of a very very long description."
           />
-        </ListSection>
+        </List.Section>
       </ScrollView>
     );
   }
@@ -81,9 +87,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  avatar: {
+  image: {
     height: 40,
     width: 40,
+    margin: 8,
   },
 });
 

@@ -7,9 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@callstack/react-theme-provider": "1.0.3",
+    "@expo/vector-icons": "6.3.1",
+    "color": "2.0.1",
+    "create-react-context": "0.2.2",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-native-paper": "1.11.0",
+    "react-native-paper": "2.0.1",
     "react-native-vector-icons": "4.6.0",
     "react-navigation": "2.6.2"
   },

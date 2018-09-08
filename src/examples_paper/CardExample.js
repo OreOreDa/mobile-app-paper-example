@@ -7,9 +7,6 @@ import {
   Caption,
   Paragraph,
   Card,
-  CardCover,
-  CardActions,
-  CardContent,
   Button,
   withTheme,
 } from 'react-native-paper';
@@ -33,9 +30,9 @@ class CardExample extends React.Component<Props> {
         style={[styles.container, { backgroundColor: background }]}
         contentContainerStyle={styles.content}
       >
-        <Card>
-          <CardCover source={require('../assets/wrecked-ship.jpg')} />
-          <CardContent>
+        <Card style={styles.card}>
+          <Card.Cover source={require('../assets/wrecked-ship.jpg')} />
+          <Card.Content>
             <Title>Abandoned Ship</Title>
             <Paragraph>
               The Abandoned Ship is a wrecked ship located on Route 108 in
@@ -43,21 +40,21 @@ class CardExample extends React.Component<Props> {
               part of the ship can only be accessed by using Dive and contains
               the Scanner.
             </Paragraph>
-          </CardContent>
+          </Card.Content>
         </Card>
-        <Card>
-          <CardCover source={require('../assets/forest.jpg')} />
-          <CardActions>
+        <Card style={styles.card}>
+          <Card.Cover source={require('../assets/forest.jpg')} />
+          <Card.Actions>
             <Button primary onPress={() => {}}>
               Share
             </Button>
             <Button primary onPress={() => {}}>
               Explore
             </Button>
-          </CardActions>
+          </Card.Actions>
         </Card>
-        <Card>
-          <CardContent>
+        <Card style={styles.card}>
+          <Card.Content>
             <Title>Berries</Title>
             <Caption>Omega Ruby</Caption>
             <Paragraph>
@@ -67,10 +64,10 @@ class CardExample extends React.Component<Props> {
               berries. These can be any berry and will require attention to get
               the best crop.
             </Paragraph>
-          </CardContent>
+          </Card.Content>
         </Card>
-        <Card>
-          <CardCover source={require('../assets/strawberries.jpg')} />
+        <Card style={styles.card}>
+          <Card.Cover source={require('../assets/strawberries.jpg')} />
         </Card>
       </ScrollView>
     );
@@ -83,6 +80,9 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 4,
+  },
+  card: {
+    margin: 4,
   },
 });
 

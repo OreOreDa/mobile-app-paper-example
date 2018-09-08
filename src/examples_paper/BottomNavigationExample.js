@@ -34,43 +34,44 @@ export default class ButtomNavigationExample extends React.Component<
   {},
   State
 > {
-  static title = 'Bottom navigation';
+  static title = 'Bottom Navigation';
 
   state = {
     index: 0,
     routes: [
-      { key: 'album', title: 'Album', icon: 'photo-album', color: '#3F51B5' },
+      { key: 'album', title: 'Album', icon: 'photo-album', color: '#6200ee' },
       {
         key: 'library',
         title: 'Library',
-        icon: 'photo-library',
-        color: '#009688',
+        icon: 'inbox',
+        color: '#2962ff',
       },
-      { key: 'recents', title: 'Recents', icon: 'history', color: '#795548' },
+      {
+        key: 'favorites',
+        title: 'Favorites',
+        icon: 'favorite',
+        color: '#00796b',
+      },
       {
         key: 'purchased',
         title: 'Purchased',
-        icon: 'shopping-cart',
-        color: '#607D8B',
+        icon: 'shop',
+        color: '#c51162',
       },
     ],
   };
-
-  _handleIndexChange = index => this.setState({ index });
-
-  _renderScene = BottomNavigation.SceneMap({
-    album: PhotoGallery,
-    library: PhotoGallery,
-    recents: PhotoGallery,
-    purchased: PhotoGallery,
-  });
 
   render() {
     return (
       <BottomNavigation
         navigationState={this.state}
-        onIndexChange={this._handleIndexChange}
-        renderScene={this._renderScene}
+        onIndexChange={index => this.setState({ index })}
+        renderScene={BottomNavigation.SceneMap({
+          album: PhotoGallery,
+          library: PhotoGallery,
+          favorites: PhotoGallery,
+          purchased: PhotoGallery,
+        })}
       />
     );
   }

@@ -2,7 +2,8 @@
 
 import * as React from 'react';
 import { FlatList } from 'react-native';
-import { ListItem, Divider, withTheme } from 'react-native-paper';
+import { List, Divider, withTheme } from 'react-native-paper';
+import AppbarExample from './AppbarExample';
 import BottomNavigationExample from './BottomNavigationExample';
 import ButtonExample from './ButtonExample';
 import CardExample from './CardExample';
@@ -11,19 +12,19 @@ import ChipExample from './ChipExample';
 import DialogExample from './DialogExample';
 import DividerExample from './DividerExample';
 import FABExample from './FABExample';
+import IconButtonExample from './IconButtonExample';
 import ListAccordionExample from './ListAccordionExample';
 import ListSectionExample from './ListSectionExample';
-import PaperExample from './PaperExample';
 import ProgressBarExample from './ProgressBarExample';
 import RadioButtonExample from './RadioButtonExample';
 import RadioButtonGroupExample from './RadioButtonGroupExample';
-import RippleExample from './RippleExample';
 import SearchbarExample from './SearchbarExample';
 import SnackbarExample from './SnackbarExample';
+import SurfaceExample from './SurfaceExample';
 import SwitchExample from './SwitchExample';
 import TextExample from './TextExample';
 import TextInputExample from './TextInputExample';
-import ToolbarExample from './ToolbarExample';
+import TouchableRippleExample from './TouchableRippleExample';
 import type { Theme } from 'react-native-paper/types';
 
 type Props = {
@@ -32,6 +33,7 @@ type Props = {
 };
 
 export const examples = {
+  appbar: AppbarExample,
   bottomNavigation: BottomNavigationExample,
   button: ButtonExample,
   card: CardExample,
@@ -40,19 +42,19 @@ export const examples = {
   dialog: DialogExample,
   divider: DividerExample,
   fab: FABExample,
+  iconButton: IconButtonExample,
   listAccordion: ListAccordionExample,
   listSection: ListSectionExample,
-  paper: PaperExample,
   progressbar: ProgressBarExample,
   radio: RadioButtonExample,
   radioGroup: RadioButtonGroupExample,
-  ripple: RippleExample,
   searchbar: SearchbarExample,
   snackbar: SnackbarExample,
+  surface: SurfaceExample,
   switch: SwitchExample,
   text: TextExample,
   textInput: TextInputExample,
-  toolbar: ToolbarExample,
+  touchableRipple: TouchableRippleExample,
 };
 
 const data = Object.keys(examples).map(id => ({ id, data: examples[id] }));
@@ -63,7 +65,7 @@ class ExampleList extends React.Component<Props> {
   };
 
   _renderItem = ({ item }) => (
-    <ListItem
+    <List.Item
       title={item.data.title}
       onPress={() => this.props.navigation.navigate(item.id)}
     />
