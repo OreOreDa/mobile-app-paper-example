@@ -6,12 +6,12 @@ import {
   Provider as PaperProvider,
   DarkTheme,
   DefaultTheme,
+  type Theme,
 } from 'react-native-paper';
 import createReactContext from 'create-react-context';
 import { createDrawerNavigator } from 'react-navigation';
-import RootNavigator from './examples_paper/RootNavigator';
-import DrawerItems from './examples_paper/DrawerItems';
-import type { Theme } from 'react-native-paper/types';
+import RootNavigator from './src/RootNavigator';
+import DrawerItems from './DrawerItems';
 
 type State = {
   theme: Theme,
@@ -20,7 +20,7 @@ type State = {
 
 const PreferencesContext: any = createReactContext();
 
-const Navigator = createDrawerNavigator(
+const App = createDrawerNavigator(
   { Home: { screen: RootNavigator } },
   {
     contentComponent: () => (
@@ -41,7 +41,7 @@ const Navigator = createDrawerNavigator(
   }
 );
 
-export default class App extends React.Component<{}, State> {
+export default class PaperExample extends React.Component<{}, State> {
   state = {
     theme: DefaultTheme,
     rtl: I18nManager.isRTL,
@@ -98,7 +98,6 @@ export default class App extends React.Component<{}, State> {
         await this._savePreferences();
 
         I18nManager.forceRTL(this.state.rtl);
-        Util.reload();
       }
     );
 
@@ -113,7 +112,13 @@ export default class App extends React.Component<{}, State> {
             isDarkTheme: this.state.theme === DarkTheme,
           }}
         >
-          <Navigator/>
+          <App
+            persistenceKey={
+              process.env.NODE_ENV !== 'production'
+                ? 'NavigationStateDEV'
+                : null
+            }
+          />
         </PreferencesContext.Provider>
       </PaperProvider>
     );

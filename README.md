@@ -11,5 +11,5 @@ yarn install
 
 Then run the following commnand:
 ```
-react-native link react-native-vector-icons
+react-native link
 ```
