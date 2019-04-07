@@ -4,12 +4,7 @@ React Native application for Paper
 
 ## Installation
 
-First, install the dependencies:
 ```
-yarn install
-```
-
-Then run the following commnand:
-```
-react-native link
+npm install
+react-native link react-native-vector-icons
 ```

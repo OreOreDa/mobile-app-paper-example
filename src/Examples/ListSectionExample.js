@@ -19,7 +19,8 @@ class ListSectionExample extends React.Component<Props> {
     } = this.props;
     return (
       <ScrollView style={[styles.container, { backgroundColor: background }]}>
-        <List.Section title="Single line">
+        <List.Section>
+          <List.Subheader>Single line</List.Subheader>
           <List.Item
             left={props => <List.Icon {...props} icon="event" />}
             title="List item 1"
@@ -30,11 +31,12 @@ class ListSectionExample extends React.Component<Props> {
           />
         </List.Section>
         <Divider />
-        <List.Section title="Two line">
+        <List.Section>
+          <List.Subheader>Two line</List.Subheader>
           <List.Item
             left={() => (
               <Image
-                source={require('../assets/email-icon.png')}
+                source={require('../../assets/images/email-icon.png')}
                 style={styles.image}
               />
             )}
@@ -44,7 +46,7 @@ class ListSectionExample extends React.Component<Props> {
           <List.Item
             left={() => (
               <Image
-                source={require('../assets/email-icon.png')}
+                source={require('../../assets/images/email-icon.png')}
                 style={styles.image}
               />
             )}
@@ -54,11 +56,12 @@ class ListSectionExample extends React.Component<Props> {
           />
         </List.Section>
         <Divider />
-        <List.Section title="Three line">
+        <List.Section>
+          <List.Subheader>Three line</List.Subheader>
           <List.Item
             left={() => (
               <Image
-                source={require('../assets/email-icon.png')}
+                source={require('../../assets/images/email-icon.png')}
                 style={styles.image}
               />
             )}
@@ -68,7 +71,7 @@ class ListSectionExample extends React.Component<Props> {
           <List.Item
             left={() => (
               <Image
-                source={require('../assets/email-icon.png')}
+                source={require('../../assets/images/email-icon.png')}
                 style={styles.image}
               />
             )}

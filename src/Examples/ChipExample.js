@@ -20,7 +20,12 @@ class ChipExample extends React.Component<Props> {
       >
         <List.Section title="Flat chip">
           <View style={styles.row}>
-            <Chip onPress={() => {}} style={styles.chip}>
+            <Chip
+              mode="outlined"
+              selected
+              onPress={() => {}}
+              style={styles.chip}
+            >
               Simple
             </Chip>
             <Chip onPress={() => {}} onClose={() => {}} style={styles.chip}>
@@ -35,7 +40,9 @@ class ChipExample extends React.Component<Props> {
               Icon
             </Chip>
             <Chip
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               onPress={() => {}}
               onClose={() => {}}
               style={styles.chip}
@@ -44,7 +51,9 @@ class ChipExample extends React.Component<Props> {
             </Chip>
             <Chip
               selected
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               onPress={() => {}}
               style={styles.chip}
             >
@@ -60,7 +69,9 @@ class ChipExample extends React.Component<Props> {
             </Chip>
             <Chip
               disabled
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               style={styles.chip}
             >
               Avatar (disabled)
@@ -91,7 +102,9 @@ class ChipExample extends React.Component<Props> {
             </Chip>
             <Chip
               mode="outlined"
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               onPress={() => {}}
               style={styles.chip}
             >
@@ -100,7 +113,9 @@ class ChipExample extends React.Component<Props> {
             <Chip
               selected
               mode="outlined"
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               onPress={() => {}}
               style={styles.chip}
             >
@@ -118,10 +133,48 @@ class ChipExample extends React.Component<Props> {
             <Chip
               disabled
               mode="outlined"
-              avatar={<Image source={require('../assets/avatar.jpg')} />}
+              avatar={
+                <Image source={require('../../assets/images/avatar.png')} />
+              }
               style={styles.chip}
             >
               Avatar (disabled)
+            </Chip>
+          </View>
+        </List.Section>
+        <List.Section title="Custom chip">
+          <View style={styles.row}>
+            <Chip
+              selected
+              onPress={() => {}}
+              style={[styles.chip, { backgroundColor: 'rgba(128,0,128,0.2)' }]}
+              selectedColor="#800080"
+            >
+              Flat selected chip with custom color
+            </Chip>
+            <Chip
+              onPress={() => {}}
+              style={styles.chip}
+              selectedColor="#800080"
+            >
+              Flat unselected chip with custom color
+            </Chip>
+            <Chip
+              selected
+              mode="outlined"
+              onPress={() => {}}
+              style={[styles.chip, { backgroundColor: 'rgba(128,0,128, 0.2)' }]}
+              selectedColor="#800080"
+            >
+              Outlined selected chip with custom color
+            </Chip>
+            <Chip
+              mode="outlined"
+              onPress={() => {}}
+              style={styles.chip}
+              selectedColor="#800080"
+            >
+              Outlined unselected chip with custom color
             </Chip>
           </View>
         </List.Section>

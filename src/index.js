@@ -10,7 +10,7 @@ import {
 } from 'react-native-paper';
 import createReactContext from 'create-react-context';
 import { createDrawerNavigator } from 'react-navigation';
-import RootNavigator from './src/RootNavigator';
+import RootNavigator from './RootNavigator';
 import DrawerItems from './DrawerItems';
 
 type State = {
