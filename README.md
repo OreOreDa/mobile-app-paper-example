@@ -5,6 +5,6 @@ React Native application for Paper
 ## Installation
 
 ```
-npm install
+yarn install
 react-native link react-native-vector-icons
 ```
